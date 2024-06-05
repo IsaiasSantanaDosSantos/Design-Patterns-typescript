@@ -1,0 +1,27 @@
+Configurando o projeto
+
+Para configurar o projeto, seguir as etapas abaixo.
+
+    1. Comando para criar um arquivo "package.json":
+        "npm init -y"
+    
+    2. Instalar o typescript:
+        "npm i typescript -D"
+
+    3.  Criar o arquivo de configuração do typescript. Para isso basta criar um arquivo na raiz do projeto com o nome "tsconfig.json", neste arquivo, adicionando algumas configurações como po exemplo:
+        "{
+            "compilerOptions": {
+                "target": "ES2019",
+                "module": "CommonJs",
+                "lib": ["ESNext", "DOM"],
+                "outDir": "./dist",
+                "rootDir": "./src",
+                "removeComments": true,
+                "noEmitOnError": true,
+                "strict": true,
+                "esModuleInterop": true,
+                "skipLibCheck": true,
+                "forceConsistentCasingInFileNames": true
+            },
+            "include": ["./src"]
+        }"
