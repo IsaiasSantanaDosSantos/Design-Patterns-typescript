@@ -25,3 +25,59 @@ Para configurar o projeto, seguir as etapas abaixo.
             },
             "include": ["./src"]
         }"
+    
+    4. Para rodar o typescript aqui no VSC, vamos precisar da extensão Code Runner (que já está instalada), e instalar o "ts-node" através do comando:
+        "npm i -D ts-node"
+    
+    5. Após fazer a instalação do passo anterior, podemos compilar o typescript no terminal através do comando:
+        "npx ts-node src/index.ts"
+
+    6. Para compilar o typescript clicando apenas no botão "Run code" aqui no VSC, precisar fazer o seguinte:
+        a) - Criar uma pasta com o nome ".vscode" na raiz do projeto;
+        b) - Dentro desta pasta, criar um arquivo com o nome "settings.json";
+        c) - Para o conteúdo do arquivo criado, adicionar o seguinte json:
+            "{
+                "code-runner.executorMap": {
+                    "typescript": "cls && npx ts-node --files --transpile-only"
+                }
+             }"
+
+    7. Agora vamos configurar o ESLint, para deixar o projeto codificado de forma padrão. Para isso, criar na raiz do projeto um arquivo com o nome ".eslintrc.js", e dentro desse arquivo, adicionar as seguintes configurações:
+        "module.exports = {
+            env: {
+                browser: true,
+                es6: true,
+                node: true,
+            },
+            extends: [
+                "eslint:recommended",
+                "plugin:@typescript-eslint/eslint-recommended",
+                "plugin:@typescript-eslint/recommended",
+                "plugin:prettier/recommended",
+            ],
+            globals: {
+                Atomics: "readonly",
+                SharedArrayBuffer: "readonly",
+            },
+            parser: "@typescript-eslint/parser",
+            parserOptions: {
+                ecmaVersion: 11,
+                sourceType: "module",
+            },
+            plugins: ["@typescript-eslint"],
+            rules: {},
+            };"
+        
+    8. Após criar o arquivo e adicionar o conteúdo, vamos fazer a instalação do EsLint e do Prettier com o seguinte comando:
+        "npm i -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser prettier eslint-config-prettier eslint-plugin-prettier"
+
+    9. O próximo passo é criar um arquivo com o nome ".prettierrc.js" na raiz do projeto e adicionar o seguinte conteúdo:
+        "module.exports = {
+            semi: true,
+            trailingComma: "all",
+            singleQuote: true,
+            printWidth: 80,
+            tabWidth: 2,
+        };"
+
+        
