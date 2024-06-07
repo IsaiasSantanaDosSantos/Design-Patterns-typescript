@@ -23,6 +23,7 @@ module.exports = {
       {
         endOfLine: "auto",
         usePrettierrc: false,
+        "prettier/prettier": "off",
       },
     ],
   },
